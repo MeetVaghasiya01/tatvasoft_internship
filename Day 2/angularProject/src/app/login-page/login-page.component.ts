@@ -13,7 +13,8 @@ export class LoginPageComponent {
   userPassword = ''
 
   listen() {
-    console.log(this.userName, this.userPassword);
+    console.log("UserName: "+this.userName);
+    console.log("UserPassword: "+this.userPassword);
   }
 
 }
