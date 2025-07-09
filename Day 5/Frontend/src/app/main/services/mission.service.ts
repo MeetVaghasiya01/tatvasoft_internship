@@ -86,6 +86,7 @@ export class MissionService {
     return this.http.post(`${this.apiUrl}${API_ENDPOINTS.MISSION_THEME.UPDATE}`, data)
   }
 
+  // Here Change Will Be Performed
   deleteMissionTheme(data: any) {
     return this.http.delete(`${this.apiUrl}${API_ENDPOINTS.MISSION_THEME.DELETE}/${data}`)
   }
