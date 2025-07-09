@@ -87,7 +87,7 @@ export class MissionService {
   }
 
   deleteMissionTheme(data: any) {
-    return this.http.delete(`${this.apiUrl}${API_ENDPOINTS.MISSION_THEME.DELETE}${data}`)
+    return this.http.delete(`${this.apiUrl}${API_ENDPOINTS.MISSION_THEME.DELETE}/${data}`)
   }
 
   //Mission Skill
