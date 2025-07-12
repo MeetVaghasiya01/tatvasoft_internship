@@ -110,7 +110,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             cityName: x.cityName,
             startDate: x.startDate,
             endDate: x.endDate,
-            totalSheets: x.totalSheets,
+            totalSeats: x.totalSeats,
             registrationDeadLine: x.registrationDeadLine,
             missionThemeId: x.missionThemeId,
             missionSkillId: x.missionSkillId,
@@ -177,7 +177,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             cityName: x.cityName,
             startDate: x.startDate,
             endDate: x.endDate,
-            totalSheets: x.totalSheets,
+            totalSeats: x.totalSeats,
             registrationDeadLine: x.registrationDeadLine,
             missionThemeId: x.missionThemeId,
             missionSkillId: x.missionSkillId,
@@ -254,7 +254,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         if (data.result == 1) {
           this._toast.success({ detail: 'SUCCESS', summary: data.data });
           setTimeout(() => {
-            this.missionData.totalSheets = this.missionData.totalSheets - 1;
+            this.missionData.totalSeats = this.missionData.totalSeats - 1;
           }, 1000);
           window.location.reload();
         } else {

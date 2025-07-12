@@ -57,7 +57,8 @@ export class AddMissionComponent implements OnInit, OnDestroy {
       missionThemeId: [null, Validators.compose([Validators.required])],
       missionSkillId: [null, Validators.compose([Validators.required])],
       missionImages: [null, Validators.compose([Validators.required])],
-      totalSheets: [null, Validators.compose([Validators.required])]
+      // totalSheets: [null, Validators.compose([Validators.required])]
+      totalSeats: [null, Validators.compose([Validators.required])]
     });
   }
 
@@ -70,7 +71,9 @@ export class AddMissionComponent implements OnInit, OnDestroy {
   get missionThemeId() { return this.addMissionForm.get('missionThemeId') as FormControl; }
   get missionSkillId() { return this.addMissionForm.get('missionSkillId') as FormControl; }
   get missionImages() { return this.addMissionForm.get('missionImages') as FormControl; }
-  get totalSheets() { return this.addMissionForm.get('totalSheets') as FormControl; }
+  // get totalSheets() { return this.addMissionForm.get('totalSheets') as FormControl; }
+  get totalSeats() { return this.addMissionForm.get('totalSeats') as FormControl; }
+
 
   setStartDate() {
     const today = new Date();
@@ -149,9 +152,12 @@ export class AddMissionComponent implements OnInit, OnDestroy {
   }
 
   async onSubmit() {
+
     this.formValid = true;
     let imageUrl: any[] = [];
     let value = this.addMissionForm.value;
+    console.log("📦 Form Payload Before Submit:", value);
+    
     value.missionSkillId = Array.isArray(value.missionSkillId) ? value.missionSkillId.join(',') : value.missionSkillId;
     if (this.addMissionForm.valid) {
       if (this.imageListArray.length > 0) {
@@ -163,6 +169,7 @@ export class AddMissionComponent implements OnInit, OnDestroy {
       }
       let imgUrlList = imageUrl.map(e => e.replace(/\s/g, "")).join(",");
       value.missionImages = imgUrlList;
+
       const addMissionSubscription = this._service.addMission(value).subscribe((data: any) => {
 
         if (data.result == 1) {

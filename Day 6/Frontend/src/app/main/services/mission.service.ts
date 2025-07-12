@@ -24,12 +24,18 @@ export class MissionService {
   imageUrl = environment.apiBaseUrl
 
   //Mission
+  // getMissionThemeList(): Observable<MissionTheme[]> {
+  //   return this.http.get<MissionTheme[]>(`${this.apiUrl}${API_ENDPOINTS.MISSION.THEME_LIST}`)
+  // }
   getMissionThemeList(): Observable<MissionTheme[]> {
-    return this.http.get<MissionTheme[]>(`${this.apiUrl}${API_ENDPOINTS.MISSION.THEME_LIST}`)
-  }
+    return this.http.get<MissionTheme[]>(`${this.apiUrl}${API_ENDPOINTS.COMMON.MISSION_THEME_LIST}`);
+  } 
 
+  // getMissionSkillList(): Observable<MissionSkill[]> {
+  //   return this.http.get<MissionSkill[]>(`${this.apiUrl}${API_ENDPOINTS.MISSION.SKILL_LIST}`)
+  // }
   getMissionSkillList(): Observable<MissionSkill[]> {
-    return this.http.get<MissionSkill[]>(`${this.apiUrl}${API_ENDPOINTS.MISSION.SKILL_LIST}`)
+    return this.http.get<MissionSkill[]>(`${this.apiUrl}${API_ENDPOINTS.COMMON.MISSION_SKILL_LIST}`)
   }
 
   uploadDoc(data: any) {
@@ -44,8 +50,11 @@ export class MissionService {
     return this.http.get<Mission[]>(`${this.apiUrl}${API_ENDPOINTS.MISSION.DETAIL}/${id}`)
   }
   
-  addMission(data: Mission) {
-    return this.http.post(`${this.apiUrl}${API_ENDPOINTS.MISSION.ADD}`, data)
+  // addMission(data: Mission) {
+  //   return this.http.post(`${this.apiUrl}${API_ENDPOINTS.MISSION.ADD}`, data)
+  // }
+  addMission(data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/Mission/AddMission`, data);
   }
 
   updateMission(data: Mission) {
